@@ -1,6 +1,9 @@
-<%= render 'events/events', title: 'Evenement qui est passée', events: @events_depassed %>
-<%= render 'events/events', title: "Evenement d'actualitée",events: @events_current %>
+<%= render 'events/events', title: 'Evenement qui est passé', events: @events_depassed %>
+<%= render 'events/events', title: "Evenement d'actualité",events: @events_current %>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_event_path,
             :class => 'btn btn-primary' %>
+            <%= link_to t('.new', :default => t("helpers.links.new")),
+                        new_event_path,
+                        :class => 'btn btn-primary' %>
