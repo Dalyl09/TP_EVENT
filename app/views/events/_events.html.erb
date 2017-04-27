@@ -1,0 +1,24 @@
+<%- model_class = Event -%>
+<div class="page-header">
+  <h1><%=title %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+    <!-- <th><%= model_class.human_attribute_name(:id) %></th> -->
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:content) %></th>
+      <th><%= model_class.human_attribute_name(:schedule_at) %></th>
+      <th><%= model_class.human_attribute_name(:place) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+    <!--  <th><%= model_class.human_attribute_name(:created_at) %></th> -->
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% events.each do |event| %>
+    <%= render event %>
+    <% end %>
+  </tbody>
+</table>
+</div>
