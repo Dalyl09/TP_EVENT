@@ -22,5 +22,8 @@
     <%= f.submit "Se connecter" %>
   </div>
 <% end %>
+<%= link_to('Admin',
+            new_admin_unlock_url,
+            :class => 'btn btn-primary')%>
 
 <%= render "devise/shared/links" %>
