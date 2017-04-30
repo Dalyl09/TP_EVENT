@@ -12,8 +12,9 @@
   <dd><%= @event.schedule_at %></dd>
   <dt><strong><%= model_class.human_attribute_name(:place) %>:</strong></dt>
   <dd><%= @event.place %></dd>
+  <!--
   <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @event.user_id %></dd>
+  <dd><%= @event.user_id %></dd> -->
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

@@ -4,8 +4,9 @@
   <td><%= event.content %></td>
   <td><%= event.schedule_at %></td>
   <td><%= event.place %></td>
+  <!--
   <td><%= event.user_id %></td>
-  <!-- <td><%=l event.created_at %></td> -->
+  <td><%=l event.created_at %></td> -->
   <td>
     <%= link_to t('.show', :default => t("helpers.links.show")),
                 event_path(event), :class => 'btn btn-default btn-xs' %>
