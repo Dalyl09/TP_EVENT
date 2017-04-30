@@ -1,6 +1,5 @@
 <%= render 'events/events', title: 'Evenement qui est passé', events: @events_depassed %>
 <%= render 'events/events', title: "Evenement d'actualité",events: @events_current %>
-
 <%= link_to('Cree un evenement',
             new_event_path,
             :class => 'btn btn-primary')%>
