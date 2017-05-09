@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, :except => [:index, :show]
+  before_action :authenticate_user!
+    before_action :check_if_admin, except: %i[index show]
   # GET /events
   # GET /events.json
   def index
@@ -63,6 +64,9 @@ class EventsController < ApplicationController
   end
 
   private
+  def check_if_admin
+    redirect_to root_path, alert: 'Vous ne pouvez pas faire cette action vous n etes pas admin' unless current_user.admin?
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])

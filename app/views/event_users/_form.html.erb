@@ -1,0 +1,37 @@
+<%= form_for(event_user) do |f| %>
+  <% if event_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event_user.errors.count, "error") %> prohibited this event_user from being saved:</h2>
+
+      <ul>
+      <% event_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :event %>
+    <%= f.text_field :event %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user %>
+    <%= f.text_field :user %>
+  </div>
+
+  <div class="field">
+    <%= f.label :presence %>
+    <%= f.check_box :presence %>
+  </div>
+
+  <div class="field">
+    <%= f.label :organizer %>
+    <%= f.check_box :organizer %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

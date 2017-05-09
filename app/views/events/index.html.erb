@@ -6,3 +6,10 @@
 <%= link_to('Deconnexion',
             destroy_user_session_url, method: :delete,
             :class => 'btn btn-primary')%>
+            <%= link_to 'Je viens',
+                      event_users_url(event_user: {event_id: event,
+                                                    user_id: current_user,
+                                                    presence: true,
+                                                    organizer: false}),
+                      method: :post,
+                      class: 'btn btn-primary btn-large' %>
