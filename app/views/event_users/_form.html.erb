@@ -1,37 +1,55 @@
-<%= form_for(event_user) do |f| %>
-  <% if event_user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event_user.errors.count, "error") %> prohibited this event_user from being saved:</h2>
+<%= form_for @event_user, :html => { :class => "form-horizontal event_user" } do |f| %>
 
-      <ul>
-      <% event_user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @event_user.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@event_user.errors.count, "error") %> prohibited this event_user from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @event_user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :event %>
-    <%= f.text_field :event %>
+  <div class="form-group">
+    <%= f.label :event_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :event_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:event_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :user_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :user_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:user_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :presence, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :presence, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:presence) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :organizer, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :organizer, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:organizer) %>
   </div>
 
-  <div class="field">
-    <%= f.label :user %>
-    <%= f.text_field :user %>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                event_users_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :presence %>
-    <%= f.check_box :presence %>
-  </div>
-
-  <div class="field">
-    <%= f.label :organizer %>
-    <%= f.check_box :organizer %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

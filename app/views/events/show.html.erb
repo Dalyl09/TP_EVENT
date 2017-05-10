@@ -26,3 +26,31 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+              <h2>
+  Listes des présents
+  <span class="badge"><%= @event.users.count %></span>
+  </h2>
+<table class='table table-hover'>
+<thead>
+  <tr>
+    <th>Email</th>
+    <th>Organisateur</th>
+    <th>Listes events du participants </th>
+  </tr>
+</thead>
+<tbody>
+<% @event.event_users.each do |eu| %>
+<tr>
+  <td>
+    <%= eu.user.email %>
+  </td>
+  <td>
+    <%= 'x' if eu.organizer %>
+  </td>
+  <td>
+    <%= eu.user %>
+  </td>
+</tr>
+<% end %>
+</tbody>
+</table>

@@ -8,9 +8,16 @@
   <td><%= event.user_id %></td>
   <td><%=l event.created_at %></td> -->
   <td>
-    <%- if current_user.admin? %>
+    <%= link_to('Je viens',
+              event_users_path(event_user: {event_id: event,
+                                            user_id: current_user,
+                                            presence: true,
+                                            organizer: false}),
+              method: :post,
+              class: 'btn btn-primary btn-large')%>
     <%= link_to t('.show', :default => t("helpers.links.show")),
                 event_path(event), :class => 'btn btn-default btn-xs' %>
+                <%- if current_user.admin? %>
     <%= link_to t('.edit', :default => t("helpers.links.edit")),
                 edit_event_path(event), :class => 'btn btn-default btn-xs' %>
     <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
