@@ -26,9 +26,10 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
-              <h2>
-  Listes des présents
-  <span class="badge"><%= @event.users.count %></span>
+              <h2>  Listes des présents
+              <span class="badge">
+                <%= @event.users %>
+              </span>
   </h2>
 <table class='table table-hover'>
 <thead>
